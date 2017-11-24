@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- classes and id are written according to BEM methodology invented by Yandex https://en.bem.info/methodology/
+	tried to write according to Progressive Enhancement-->
+	<meta charset="UTF-8">
+	<title>Surfers</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+	<style>
+		/* progressive enhancement: - stable part up to css2 */
+		body{
+			width: 100%;
+		}
+		body, ul, li, a, img, h1, p, a{
+			margin: 0;
+			padding: 0;
+			border: 0;
+			list-style: none;
+		}
+
+		.clearfix:after{
+			display: block;
+			content: " ";
+			clear:both;
+			height: 0;
+		}
+		header{
+			display: block;
+			position: relative;
+			top: 0;
+			margin-left: auto;
+			margin-right: auto;
+			width: 924px;
+		}
+		.header-logo{
+			font-family: 'Montserrat', sans-serif;
+			font-size: 34px;
+			font-weight: bold;
+			display: inline-block;
+			float: left;
+			margin-left: 0;
+			margin-top: 35px;
+			margin-bottom: 0;
+		}
+
+		.header-menu_menu-button{
+			float: left;
+			list-style:none;
+			display: inline-block;
+			margin-top: 41px;
+			padding: 7px 10px;
+		}
+		.header-menu_menu-button:first-child{
+			margin-left: 50px;
+		}
+		.header-menu_menu-button a{
+			font-family: "Monserra", sans-serif;
+			font-weight: bold;
+			font-size: 14px;
+			text-decoration: none;
+			color: #000;
+		}
+		.header-menu_menu-button:hover{
+			color:#fff;
+			background-color: #00b1ff;
+			padding: 7px 10px;
+		}
+		.header-menu_menu-button:hover a{
+			color:#fff;
+		}
+		.header-social-buttons_social-button{
+			list-style-type: none;
+			float: left;
+			display: inline-block;
+			margin-left: 10px;
+			margin-top: 37px;
+			margin-bottom: 0;
+			line-height: 0;
+		}
+		.header-social-buttons_social-button:first-child{
+			margin-left: 50px;
+		}
+		.slogan-section{
+			margin-top: 130px;
+			position: relative;	
+		}
+		.slogan-section_slogan1,
+		.slogan-section_slogan2{
+			text-align: center;
+			font-family: "playfair display";
+		}
+		.slogan-section_slogan1{
+			font-size: 50px;
+			color: #000;
+			margin-bottom: 5px;
+			line-height: 0;
+		}
+		.slogan-section_slogan2{
+			font-size: 24px;
+			margin-top: 50px;
+			color:#fff;
+			line-height: 0;
+		}
+		/* ----------- ITEM PART */
+		
+
+		.item-sell-box{
+			width: 1070px;
+			position: relative;
+			margin-left: auto;
+			margin-right: auto;
+			height: auto;
+			margin-top: 155px;
+		}
+		.item-sell-box_viewport{
+			width: 565px;
+			float: left;
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.item-sell-box_viewport_large-image{
+			width: 330px;
+			float: left;
+			margin-left: 70px;
+			margin-top: 75px;
+		}
+		.item-sell-box_viewport_list-images_picture{
+			width: 70px;	
+			height: 70px;
+			border: 1px solid  #cdcdcd;
+			margin-left: 65px;
+			margin-top: 5px;
+		}
+		.item-sell-box_viewport_list-images_picture:first-child{
+			margin-top: 160px;
+		}
+		.item-sell-box_viewport_list-images_picture:hover{
+			border: 1px solid  #00d2ff;
+			outline: 1px solid #00d2ff;
+		}
+		.item-sell-box_description-box{
+			width: 430px;
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 600px;
+		}
+		.item-sell-box_description-box_item-rating li{
+			color: #f2d800;
+			display: inline-block;
+			float: left;
+			margin-right: 4px;
+		}
+		.fa-star, .fa-star-o{
+			font-size: 18px;
+		}
+		.item-sell-box_description-box_item-rating ul{
+			margin-right: 4px;
+		}
+		.item-sell-box_description-box_item-rating li.star-color_unchecked{
+			color: #787878;
+		}
+		.item-sell-box_description-box_item-voice-count{
+			font-family: "montserrat", sans-serif;
+			font-weight: bold;
+			font-size: 12px;
+			display: inline-block;
+			float: left;
+			margin-right: 4px;
+			margin-top: 2px;
+		}
+		.item-sell-box_description-box_item-header, .item-sell-box_description-box_item-cost{
+			font-family: "montserrat", sans-serif;
+			font-weight: bold;
+			font-size: 20px;
+			text-align: left;
+			display: inline-block;
+			float: left;
+		}
+		.item-sell-box_description-box_description_header{
+			font-family: "raleway", sans-serif;
+			font-weight: bold;
+			font-size:  14px;
+			margin-top: 40px;
+			margin-bottom: 8px;
+			}
+		.item-sell-box_description-box_description_header:after{
+			clear: both;
+			content: "";
+			display: block;
+			}
+		.item-sell-box_description-box_description_header li{
+			display: inline-block;
+			float: left;
+			margin-right: 30px;
+			margin-bottom: 4px;
+		}
+		.item-sell-box_description-box_description_header li:hover{
+			border-bottom: 4px 	solid  #00d2ff;
+			margin-bottom: 0px;
+			cursor:pointer;
+		}
+		.item-sell-box_description-box_description_header_horizont-line{
+			color:#787878;
+			size: 1px;
+			width: 100%;
+			float: left;
+			top:150px;
+			left: 0;
+			position: absolute;
+		}
+		.item-sell-box_description-box_description_content li{
+			font-family: "raleway", sans-serif;
+			font-size: 14px;	
+			margin-top: 27px;
+			margin-right: 50px;
+			text-align: justify;
+			line-height: 1.5em;
+		}
+		.item-sell-box_description-box_item-buy-section{
+			width: 100%;
+			height: 100%;
+			display: inline-block;
+			margin-top: 36px;
+			vertical-align: middle;
+		}
+		.item-sell-box_description-box_item-buy-section:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+		.item-sell-box_description-box_item-cost{
+			font-size: 24px;
+			margin-left: 0;
+			vertical-align: middle;
+			margin-top: 12px;
+		}
+		.item-sell-box_description-box_buy-button{
+			font-family: "montserrat", sans-serif;
+			font-weight: bold;
+			font-size: 14px;
+			float: left;
+			list-style: none;
+			text-decoration: none;
+			color:white;
+			background-color: #00d2ff;
+			margin-left: 30px;
+			margin-top: 0px;
+			padding: 17px 33px 17px 33px;
+			vertical-align: middle;
+		}
+		.item-sell-box_description-box_item-listing{
+			font-family: "montserrat", sans-serif;
+			color: #00d2ff;
+			font-size: 16px;
+			margin-top: 86px;
+			margin-left: 0;
+			display: inline-block;
+		}
+		.item-sell-box_item-list_buttons{
+			position: absolute;
+			top: 20px;
+			left: 987px;
+			width: auto;
+			height: 40px;
+			z-index: 130;
+		}
+		.item-sell-box_item-list_buttons li{
+			height: 40px;
+			width: 40px;
+			background-color: #f2d800;
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			text-align: center;
+			display: inline-block;
+			float: left;
+		}
+		.item-sell-box_item-list_buttons li i{
+			padding-top: 12px;
+			color:white;
+		}
+		.item-sell-box_description-box_item-list_count{
+			position: absolute;
+			left: 387px;
+			top:60px;
+			width: auto;
+			height: auto;
+			background-color: #000;
+			text-align: center;
+		}.item-sell-box_description-box_item-list_count p{
+			display: inline-block;
+			padding: 11px 7px;
+			font-family: "montserrat", sans-serif;
+			font-size: 14px;
+			color:white;
+			margin: 0;
+		}
+
+/* here is everything is fine and no any positioning, only FLOAT*/
+		.item-sell-box_background{
+			width: 1030px;
+			height: auto;
+			background-color: white;
+			float: left;
+		}
+		.item-sell-box_background_border-triangle{
+			width: 600px;
+			height: 600px;
+			background-color: white;
+		}
+		.item-sell-box_background_border-triangle:after{
+			content: "";
+			float: left;
+			border: 300px solid transparent;
+			border-left: 300px solid  #00d2ff;
+			border-top: 300px solid  #00d2ff;
+		}.item-sell-box_background_text_rotated{
+			/*transform: rotate(-45deg);*/
+			font-size: 127px;
+			font-family: "montserrat", sans-serif;
+			font-weight: bold;
+			color: rgba(0,0,0,0.07);
+			display: inline-block;
+			letter-spacing: 10px;
+			padding: auto;
+			position: absolute;
+			top: 214px;
+			right: -220px;
+		}
+		/*--------ABOUT US SECTION------*/
+		.about-us{
+			position: relative;
+			margin-left: 0;
+			top: 600px;
+			height: auto;
+			width: 1348px;
+		}
+		.about-us_short-description{
+			background: #fff;
+			padding: 90px 100px 0px 190px;
+			width: 330px;
+			text-align: center;
+		}
+		.about-us_short-description h1{
+			font-family: "montserrate", sans-serif;
+			font-weight: bold;
+			font-size: 18px;
+			text-align: center;
+			color: #000;
+			line-height: 2;
+		}
+		.about-us_short-description p{
+			font-family: "playfair display";
+			font-size: 22px;	
+			text-align: left;
+			color: #000;
+			padding-top: 40px;
+			width: 330px;
+			height: auto;
+		}
+		.about-us_short-description a{
+			color: #00d2ff;
+			font-family: "montserrate", sans-serif;
+			font-weight: bold;
+			font-size: 16px;
+			text-decoration: underline;
+			padding-left: 0px;
+			margin-top: 20px;
+			margin-left: -200px;
+			display: block;
+		}	
+		.about-us_video{
+		}
+		.about-us_video-section_video{
+			float: right;			
+			width: 500px;
+			height: 300px;
+			margin-right: 140px;
+			margin-top: 200px;
+		}
+		.about-us_background-text{
+			font-size: 127px;
+			font-family: "montserrat", sans-serif;
+			font-weight: bold;
+			color: rgba(0,0,0,0.07);
+			display: inline-block;
+			letter-spacing: 10px;
+			position: absolute;
+			top: -426px;
+			left: 220px;
+		}
+			
+		/* -----------------OUR TEAM SECTION------------*/
+		
+		.our-team{
+			position: relative;
+			margin-left: auto;
+			margin-right: auto;
+			top:900px;
+			width: 1170px;
+			height: auto;
+		}
+		.our-team_background-text{
+			font-size: 127px;
+			font-family: "montserrat", sans-serif;
+			font-weight: bold;
+			color: rgba(0,0,0,0.07);
+			display: inline-block;
+			letter-spacing: 10px;
+			position: absolute;
+			top: -32px;
+			left: 0px;
+		}
+		.our-team_team-cards{
+			width: 970px;
+			margin: 90px;
+		}
+		.our-team_team-cards_sportsman-card{
+			float: left;
+			width: 270px;
+			height: 260px;
+			border-radius: 5px;
+			background-color: #fff;
+		}
+		.our-team_team-cards_sportsman-card:nth-child(odd){
+			margin-left: -40px;
+		}
+		.our-team_team-cards_sportsman-card:first-child{
+			margin-left: 0;
+		}
+		.our-team_team-cards_sportsman-card:nth-child(even){
+			margin-left: -40px;
+			margin-top: 30px;
+		}
+		.our-team_team-cards_sportsman-card:nth-child(5), .our-team_team-cards_sportsman-card:nth-child(6){
+			display: none;
+		}
+		.our-team_team-cards_sportsman-card ul li{
+			display: block;
+			text-align: center;	
+			margin-top: 10px;		
+		}
+		.our-team_team-cards_sportsman-card .sportsman_img{
+			margin-top: 30px;
+		}
+		.our-team_team-cards_sportsman-card .sportsman_name{
+			font-family: "montserrate", sans-serif;
+			font-size: 18px;
+			color: #00d2ff;
+		}
+		.our-team_team-cards_sportsman-card .sportsman_email{
+			margin-top: 0;
+		}
+		.our-team_team-cards_sportsman-card .sportsman_email, .our-team_team-cards_sportsman-card .sportsman_location{
+			font-family: "raleway", sans-serif;
+			font-size: 14px;
+			color: #787878;
+		}
+		.our-team_team-cards_sportsman-card .snake_img{
+			background: url("surfer-co/snake_img.png") no-repeat 100%;
+			width: 31px;
+			height: 6px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.our-team_team-cards_sportsman-card:hover{
+			background-color: #00b1ff;
+		}
+		.our-team_team-cards_sportsman-card:hover img{
+			border-radius: 50%;
+			border: 2px solid  #fff;
+			margin-top: -2px;	
+		}
+		.our-team_team-cards_sportsman-card:hover .sportsman_name{
+			color:#fff;
+		}
+		.our-team_team-cards_sportsman-card:hover .sportsman_email, .our-team_team-cards_sportsman-card:hover .sportsman_location{ 
+			color:#fff;
+		}
+		.our-team_team-cards_sportsman-card:hover .snake_img{
+			background: url("surfer-co/snake_img_active.png") no-repeat 100%;
+			margin-top: 8px;
+		}
+		.our-team_cards-buttons ul li{
+			float: left;
+			border-radius: 50%;
+			width: 50px;
+			height: 50px;
+			color:#001eff;
+		}
+		.our-team_cards-buttons ul li i{
+			padding-top: 5px;
+			margin-left: 5px;
+		}
+		/*------------BACKGROUND---------*/
+
+		.background{
+		}
+		.background_header-background-img{
+			display: block;
+			position: absolute;
+			background: url("surfer-co/header-background.png") no-repeat;
+			background-size: 100%;
+			width: 1348px;
+			height: 100%;
+			overflow-x: hidden;
+		}
+		.background_header-background-gradient{
+			display: block;
+			position: absolute;
+			top: 283px;
+			width: 100%;
+			height: 210px;
+			background: linear-gradient(0deg, rgba(255,255,255,1), rgba(255,255,255,0.7), rgba(255,255,255,0.0));
+		}
+		.background_about-us-background{
+			display: block;
+			position: absolute;
+			top: 1312px;
+			max-width: 100%;
+			width: 1348px;
+			height: 100%;
+			background: url("surfer-co/aboutUs-background.png") no-repeat;
+			background-size: 100%;
+			overflow-x: hidden;
+		}
+		/*Progressive enhancement: - new features for responsive and magnificent rendering features of css3*/
+		.item-sell-box_background{
+			box-shadow: -8px -8px 30px rgba(0,0,0,0.2);
+		}
+		.item-sell-box_background_text_rotated{
+			transform: rotate(-90deg);
+			}
+		.about-us_video-section_video{
+			box-shadow: 8px 8px 30px rgba(0,0,0,0.4);
+		}
+		.our-team_team-cards_sportsman-card,
+		.our-team_cards-buttons ul li{
+			box-shadow: 0 0 30px rgba(0,0,0,0.4);
+		}
+		/* добавить анимацию про наведении на соц кнопку в хедере
+		сделать смену картики при наведении/нажатии на одну из мал картинок товара
+		сделать тень для больших картинок товара*/
+	</style>
+</head>
+<body>
+	<!--header>(logo+menu>ul>li#menu_button$*6>a^^^social_buttons>ul>li#*3>a) -->
+	<div class="background">
+		<div class="background_header-background-img"></div>
+		<div class="background_header-background-gradient"></div>
+		<div class="background_about-us-background"></div>
+		<div class=""></div>
+	</div>
+	<header>
+		<div class="clearfix">
+			<p class="header-logo">Surfers Co.</p>
+			<div class="header-menu">
+				<ul class="header-menu_ul">
+					<li class="header-menu_menu-button" id="menu-button1"><a href="">BOARDS</a></li>
+					<li class="header-menu_menu-button" id="menu-button2"><a href="">ACCESORIES</a></li>
+					<li class="header-menu_menu-button" id="menu-button3"><a href="">BLOG</a></li>
+					<li class="header-menu_menu-button" id="menu-button4"><a href="">TECHNOLOGY</a></li>
+					<li class="header-menu_menu-button" id="menu-button5"><a href="">TEAM</a></li>
+					<li class="header-menu_menu-button" id="menu-button6"><a href="">DEALERS</a></li>
+				</ul>
+			</div>
+			<div class="header-social-buttons">
+				<ul>
+					<li id="" class="header-social-buttons_social-button"><a href=""><img src="css/51/mail.png" alt="Login with eMail"></a></li>
+					<li id="" class="header-social-buttons_social-button"><a href=""><img src="css/51/instagram.png" alt="Login with Instagram"></a></li>
+					<li id="" class="header-social-buttons_social-button"><a href=""><img src="css/51/facebook.png" alt="Login with Facebook"></a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<div class="slogan-section width">
+		<div class="clearfix">
+			<p class="slogan-section_slogan1">Ride every wave as if it's your last</p>
+			<p class="slogan-section_slogan2">We love the motion of the ocean</p>
+		</div>
+	</div>
+	<!-- .item-sell-box>.item-sell-box_viewport>.item-sell-box_viewport_large-image#active-image+input.item-sell-box_viewport_list-image$#item-image$*4>img^item-sell-box_description-box>p.item-sell-box_description-box_item-header+ul>li.item-sell-box_description-box_item-rating#star$*5^p.item-sell-box_description-box_item-voice-count#item-voice-count+ul>li.item-sell-box_description-description>p.item-sell-box_description-box_description_header+p.item-sell-box_description-box_description_text^li.item-sell-box_description-box_features>p.item-sell-box_description-box_features_header+p.item-sell-box_description-box_features_text^li.item-sell-box_description-box_dimentions>p.item-sell-box_description-box_dimentions_header+p.item-sell-box_description-box_dimentions_text^^.item-sell-box_description-box_item-cost#item-cost+a.item-sell-box_description-box_buy-button#buy-button+a.item-sell-box_description-box_item-listing#item-listing+ul>li.item-sell-box_description-box_item-button_previous#item-previous+li.item-sell-box_description-box_item-button_next#item-next^ul>li.item-sell-box_description-box_item-number#item-number+li.item-sell-box_description-box_item-quantity#item-quantity -->
+	<div class="item-sell-box item-sell-box-width">
+		<div class="clearfix">
+			<div class="item-sell-box_background">
+				<div class="item-sell-box_background_border-triangle"></div>
+				<div class="item-sell-box_background_text_rotated"><p>BOARDS</p></div>
+			</div>
+			<div class="item-sell-box_item-list_buttons">
+				<ul>
+					<li class="item-sell-box_item-list_buttons-previous" id="item-previous"><a href=""><i class="fa fa-lg fa-chevron-left"></i></a></li>
+					<li class="item-sell-box_item-list_buttons-next" id="item-next"><a href=""><i class="fa fa-lg fa-chevron-right"></i></a></li>
+				</ul>
+			</div>
+			<div class="item-sell-box_viewport">
+				<div class="item-sell-box_viewport_large-image" id="active-image"><img src="surfer-co/board-img.png"></div>
+
+				<div class="item-sell-box_viewport_list-images">
+					<img src="surfer-co/board-small-img0.png" alt="" id="item-image0" onclick="viewport_large_image(item-image01)" class="item-sell-box_viewport_list-images_picture">
+					<img src="surfer-co/board-small-img1.png" alt="" id="item-image1" onclick="viewport_large_image(item-image1)" class="item-sell-box_viewport_list-images_picture">
+					<img src="surfer-co/board-small-img2.png" alt="" id="item-image2" onclick="viewport_large_image(item-image2)" class="item-sell-box_viewport_list-images_picture">
+					<img src="surfer-co/board-small-img3.png" alt="" id="item-image3" onclick="viewport_large_image(item-image3)" class="item-sell-box_viewport_list-images_picture">
+				</div>
+				<div class="item-sell-box_description-box">
+					<h2 class="item-sell-box_description-box_item-header">JR Surfboards The Donny Stoker Yellow/Green Rail Fade</h2>
+					<div class="clearfix">
+						<div class="item-sell-box_description-box_item-rating">
+							<ul>
+								<li id="rating-star1"><i class="fa fa-lg fa-star"></i></li>
+								<li id="rating-star2"><i class="fa fa-lg fa-star"></i></li>
+								<li id="rating-star3"><i class="fa fa-lg fa-star"></i></li>
+								<li id="rating-star4"><i class="fa fa-lg fa-star"></i></li>
+								<li id="rating-star5" class=" star-color_unchecked"><i class="fa fa-lg fa-star-o"></i></li>
+							</ul>
+						</div>
+						<p class="item-sell-box_description-box_item-voice-count" id="item-voice-count">(52)</p>
+					</div>
+					<div class="clearfix">
+						<div class="item-sell-box_description-box_description_header">
+							<hr class="item-sell-box_description-box_description_header_horizont-line">
+							<ul>
+								<li id="description-header1">DESCRIPTION</li>
+								<li id="description-header2">FEATURES</li>
+								<li id="description-header3">DIMENSIONS</li>
+							</ul>
+						</div>
+					</div>
+					<div class="item-sell-box_description-box_description_content">
+						<ul>
+							<li id="description-content1">Easy to ride, care free surfing craft that's fun for everyone, paddles well, super fast down the line and great for any level of surfing depending on who rides it. The Donny Stoker, a rework on design from stokesys first ever pro model. A super easy to surf and fun board. The Donny Stoker is a board for total freesurfing expression.</li>
+							<li id="description-content2" style="display:none">Some features text</li>
+							<li id="description-content3" style="display:none">Some board dimensions</li>
+						</ul>
+					</div>
+					<div class="item-sell-box_description-box_item-buy-section">
+						<p class="item-sell-box_description-box_item-cost" id="item-cost">XXX.CC</p>
+						<a href="" class="item-sell-box_description-box_buy-button" id="buy-button">BUY NOW</a>
+					</div>
+					<a href="" class="item-sell-box_description-box_item-listing" id="item-listing">View all boards</a>
+					<div class="item-sell-box_description-box_item-list_count">
+						<p id="item-number">3/25</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="about-us">
+		<div class="clearfix">
+			<p class="about-us_background-text">ABOUT US</p>
+			<div class="about-us_video-section">
+				<video class="about-us_video-section_video" src="surfer-co/" controls="controls" poster="surfer-co/play-video-img.png"></video>
+			</div>
+			<div class="about-us_short-description">
+				<h1>WE ARE SURFERS CO.
+				<br> X</h1>
+				<p>Lorem ipsum dolor sit amet, aeneam consectetur adipiscing elit. Fusce iaculis feugiat arcunum fermentum hendrerit. Suspendisse auctor labor nisi, et interdum diam facilisis, aliquam pulvinar semi egetis belle sollicitudin ut. Nullam tincidun finibustus scelerisque.</p>
+				<a href="about_us.html">Read more</a>
+			</div>
+		</div>
+	</div>
+	<!-- .our-team>.clearfix.>.our-team_background-text+.our-team_team-cards>ul>li.our-team_team-cards_sportsman-card#sportsman_card$*6>ul>li.sportsman_name#sportsman_name+li.sportsman_email#sportsman_email+li.snake_img+li.sportsman_location#sportsman_location^^^^+.our-team_cards-buttons>ul>li.our-team_cards-buttons_list-button_previous+li.li.our-team_cards-buttons_list-button_next -->
+	<div class="our-team">
+		<div class="clearfix ">
+			<div class="our-team_background-text">OUR TEAM</div>
+			<div class="our-team_team-cards">
+				<ul>
+					<li class="our-team_team-cards_sportsman-card" id="sportsman_card1">
+						<ul>
+							<li class="sportsman_img" id="sportsman_img"><img src="surfer-co/sportsman_card1.png" alt=""></li>
+							<li class="sportsman_name" id="sportsman_name">Taj Burrow</li>
+							<li class="sportsman_email" id="sportsman_email">@tajamos</li>
+							<li class="snake_img"></li>
+							<li class="sportsman_location" id="sportsman_location"><i class="fa fa-lg fa-map-marker"></i>Yallingup, Australia</li>
+						</ul>
+					</li>
+					<li class="our-team_team-cards_sportsman-card" id="sportsman_card2">
+						<ul>
+							<li class="sportsman_img" id="sportsman_img"><img src="surfer-co/sportsman_card2.png" alt=""></li>
+							<li class="sportsman_name" id="sportsman_name">Malia Manuel</li>
+							<li class="sportsman_email" id="sportsman_email">@maliama</li>
+							<li class="snake_img"></li>
+							<li class="sportsman_location" id="sportsman_location"><i class="fa fa-lg fa-map-marker"></i>Wailua, Hi</li>
+						</ul>
+					</li>
+					<li class="our-team_team-cards_sportsman-card" id="sportsman_card3">
+						<ul>
+							<li class="sportsman_img" id="sportsman_img"><img src="surfer-co/sportsman_card3.png" alt=""></li>
+							<li class="sportsman_name" id="sportsman_name">Ian Walsh</li>
+							<li class="sportsman_email" id="sportsman_email">@ian.walsh</li>
+							<li class="snake_img"></li>
+							<li class="sportsman_location" id="sportsman_location"><i class="fa fa-lg fa-map-marker"></i>Maui, Hi</li>
+						</ul>
+					</li>
+					<li class="our-team_team-cards_sportsman-card" id="sportsman_card4">
+						<ul>
+							<li class="sportsman_img" id="sportsman_img"><img src="surfer-co/sportsman_card4.png" alt=""></li>
+							<li class="sportsman_name" id="sportsman_name">Macy Callaghan</li>
+							<li class="sportsman_email" id="sportsman_email">@macyjanecallaghan</li>
+							<li class="snake_img"></li>
+							<li class="sportsman_location" id="sportsman_location"><i class="fa fa-lg fa-map-marker"></i>San Clemente, CA</li>
+						</ul>
+					</li>
+					<li class="our-team_team-cards_sportsman-card" id="sportsman_card5">
+						<ul>
+							<li class="sportsman_img" id="sportsman_img"><img src="surfer-co/sportsman_card5.png" alt=""></li>
+							<li class="sportsman_name" id="sportsman_name">Marcin Allen</li>
+							<li class="sportsman_email" id="sportsman_email">@marall</li>
+							<li class="snake_img"></li>
+							<li class="sportsman_location" id="sportsman_location"><i class="fa fa-lg fa-map-marker"></i>Coupertino, CA</li>
+						</ul>
+					</li>
+					<li class="our-team_team-cards_sportsman-card" id="sportsman_card6">
+						<ul>
+							<li class="sportsman_img" id="sportsman_img"><img src="surfer-co/sportsman_card6.png" alt=""></li>
+							<li class="sportsman_name" id="sportsman_name">Mykhail Pozniakov</li>
+							<li class="sportsman_email" id="sportsman_email">@myshania</li>
+							<li class="snake_img"></li>
+							<li class="sportsman_location" id="sportsman_location"><i class="fa fa-lg fa-map-marker"></i>Kamchatka, RF</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="our-team_cards-buttons">
+				<ul>
+					<li class="our-team_cards-buttons_list-button_previous"><i class="fa fa-lg fa-arrow-left"></i></li>
+					<li class="li our-team_cards-buttons_list-button_next"><i class="fa fa-lg fa-arrow-right"></i></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
